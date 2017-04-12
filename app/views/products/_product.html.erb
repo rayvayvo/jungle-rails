@@ -16,7 +16,9 @@
       Details &raquo;
     <% end %>
   </footer>
-
+  <aside class="<%=class_check(product)%>" >
+    <%= quantity_check(product) %>
+    </aside>
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
