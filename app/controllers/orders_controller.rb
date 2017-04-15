@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
 
 
     if order.valid?
+
+      JungleMailer.receipt_email(current_user).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
@@ -72,5 +74,6 @@ class OrdersController < ApplicationController
     end
     total
   end
+
 
 end

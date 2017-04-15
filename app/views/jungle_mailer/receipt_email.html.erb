@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your order receipt from Jungle.ca</h1>
+    <% Order.last.line_items.each do |p| %>
+
+      <% if product = Product.find(p[:product_id]) %>
+
+          <strong><%= product.name %></strong><br>
+
+          <span><%= humanized_money_with_symbol product.price  %> </span>
+          <strong> x </strong>
+          <span><%= p[:quantity]  %> </span>
+          <strong> = </strong>
+          <span><%= humanized_money_with_symbol (product.price * p[:quantity]) %></span><br><br>
+      <%end%>
+    <%end%>
+
+          <strong> Your total is: <%=humanized_money_with_symbol Order.last.total_cents/100.00 %> </strong>
+
+  </body>
+</html>
+

@@ -1,0 +1,15 @@
+Your order receipt from Jungle.ca
+    <% Order.last.line_items.each do |p| %>
+
+      <% if product = Product.find(p[:product_id]) %>
+
+<%= product.name %>
+
+        <%= humanized_money_with_symbol product.price  %> x <%= p[:quantity]  %> = <%= humanized_money_with_symbol (product.price * p[:quantity]) %>
+      <%end%>
+    <%end%>
+
+
+
+
+Your total is: <%=humanized_money_with_symbol Order.last.total_cents/100.00 %>
