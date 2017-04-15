@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
@@ -36,11 +37,15 @@ class OrdersController < ApplicationController
   end
 
   def create_order(stripe_charge)
+
+
     order = Order.new(
       email: params[:stripeEmail],
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
+
     )
+
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i
@@ -52,6 +57,7 @@ class OrdersController < ApplicationController
         )
       end
     end
+
     order.save!
     order
   end

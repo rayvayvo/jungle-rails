@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
 
+
   def show
   end
 
@@ -10,6 +11,7 @@ class CartsController < ApplicationController
     item["quantity"] += 1
     cart[product_id] = item
     update_cart cart
+
 
     redirect_to :back
   end
