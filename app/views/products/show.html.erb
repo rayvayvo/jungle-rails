@@ -39,8 +39,9 @@
             <strong><%= review.rating %> / 5</strong>
             <% review.id %>
             <% if review.user_email == current_user.email %>
+            <div class="review_delete">
             <%= button_to "delete", product_review_path(product_id: @review.product_id, id:review.id), :method => :delete %>
-
+            </div>
             <%end%>
           </div>
         <% end %>
@@ -49,16 +50,18 @@
 
  <div class ="new_review">
     <%= form_for([@product, @review], :url => product_reviews_path(@review.product_id), :method => "post") do |f| %>
-          <div class="form-group">
-          <strong>Write a new review</strong>
-          <%= label :rating, "Rating:" %> <br />
-          <%= f.select :rating, [5, 4, 3, 2, 1] %>
+          <div class="form-group nrf">
+          <strong>Write a new review</strong><br><br>
+            <%= label :rating, "Rating:" %>
+            <%= f.select :rating, [5, 4, 3, 2, 1] %>
           </div>
-          <div class="form-group">
-          <%= label :description, "Description:" %> <br />
-          <%= f.text_area :description, size: "80x6" %>
+          <div class="form-group nrf">
+            <%= label :description, "Description:" %> <br />
+            <%= f.text_area :description, :value => ""%>
           </div>
-          <%= f.submit "Create" %>
+          <div class="nrf">
+            <%= f.submit "Create" %>
+          </div>
         <% end %>
 
       </div>
