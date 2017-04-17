@@ -26,8 +26,10 @@
       </div>
     </div>
 
-    <% if @review %>
       <h1 class="review_header">User Reviews:</h1>
+
+    <% if !@review %>
+      <h2 class="no_review_header">No reviews yet!</h2>
     <%end%>
 
      <% reviews = Review.where(product_id: @product.id) %>
@@ -40,7 +42,7 @@
             <% review.id %>
             <% if review.user_email == current_user.email %>
             <div class="review_delete">
-            <%= button_to "delete", product_review_path(product_id: @review.product_id, id:review.id), :method => :delete %>
+            <%= button_to "delete", product_review_path(product_id: @product.id, id:review.id), :method => :delete %>
             </div>
             <%end%>
           </div>
@@ -49,7 +51,7 @@
 
 
  <div class ="new_review">
-    <%= form_for([@product, @review], :url => product_reviews_path(@review.product_id), :method => "post") do |f| %>
+    <%= form_for([@product, Review.new], :url => product_reviews_path(@product.id), :method => "post") do |f| %>
           <div class="form-group nrf">
           <strong>Write a new review</strong><br><br>
             <%= label :rating, "Rating:" %>

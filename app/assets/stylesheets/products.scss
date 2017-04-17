@@ -81,11 +81,15 @@ main section.categories-show {
 }
 .review_header {
   text-align: center;
-  position: relative;
-  top: -5em;
   border-bottom: 1px solid;
   width: 25%;
-  left: 50%;
+  margin-left: 50%;
+}
+
+.no_review_header {
+  text-align: center;
+  width: 25%;
+  margin-left: 50%;
 }
 
 .review {
@@ -119,8 +123,7 @@ main section.categories-show {
   .well {
     width: 50%;
     margin-left: 50%;
-    position: relative;
-    top: -10em;
+
   }
 
   .nrf {
@@ -134,17 +137,18 @@ main section.categories-show {
     width: 25%;
   }
 
+
+
   #review_description {
     width: 96%;
   }
 
-  #edit_review_1 {
+  #new_review {
     background-color: blanchedalmond;
     height: 14.5em;
     border-radius: 5px;
-    position: relative;
-    left: -45em;
-    bottom: 35em;
+    width: 100%;
+    margin-left: 0;
   }
 
 main section.products-show {
