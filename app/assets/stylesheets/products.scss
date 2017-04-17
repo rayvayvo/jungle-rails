@@ -79,6 +79,59 @@ main section.categories-show {
     }
   }
 }
+.review_header {
+  text-align: center;
+  position: relative;
+  top: -5em;
+  border-bottom: 1px solid;
+  width: 25%;
+  left: 50%;
+}
+
+.review {
+  background-color: ghostwhite;
+  float: right;
+  padding-right: 10em;
+  margin-right:20em;
+  border: 1px solid black;
+  position: relative;
+  top: -10em;
+}
+
+  .review_email {
+    text-decoration: underline;
+  }
+
+  .review_rating {
+    text-decoration: overline;
+  }
+
+  .new_review_header {
+    text-decoration: underline;
+    font-size: 2em;
+
+  }
+
+  .nrf {
+    position: relative;
+    top:-2em;
+    margin-left: 0.4em;
+  }
+
+  .new_review {
+    margin-left: 60%;
+    width: 25%;
+  }
+
+  #review_description {
+    width: 96%;
+  }
+
+  #edit_review_1 {
+    background-color: blanchedalmond;
+    height: 20em;
+    border-radius: 5px;
+  }
 
 main section.products-show {
 

@@ -132,5 +132,33 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+Review.create(
+  product_id: 1,
+  user_email: "bob@bob.com",
+  description: "cool!!!",
+  rating: "3"
+  )
 
+Review.create(
+  product_id: 4,
+  user_email: 'jcole@yo.com',
+  description: 'lame',
+  rating: "1"
+  )
+
+Review.create(
+  product_id: 15,
+  user_email: 'coffee@java.com',
+  description: 'yum',
+  rating: "5"
+  )
+
+Review.create(
+  product_id: 1,
+  user_email: 'coffee@java.com',
+  description: 'nice',
+  rating: "5"
+  )
 puts "DONE!"
+
+

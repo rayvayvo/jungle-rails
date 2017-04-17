@@ -26,6 +26,42 @@
       </div>
     </div>
 
-  </article>
+    <% if @review %>
+      <h1 class="review_header">User Reviews:</h1>
+    <%end%>
 
+     <% reviews = Review.where(product_id: @product.id) %>
+        <% reviews.reverse.each do |review| %>
+
+          <div class="well">
+            <strong><%= review.user_email %>:</strong> <br>
+            <strong><%= review.description %></strong> <br>
+            <strong><%= review.rating %> / 5</strong>
+            <% review.id %>
+            <% if review.user_email == current_user.email %>
+            <%= button_to "delete", product_review_path(product_id: @review.product_id, id:review.id), :method => :delete %>
+
+            <%end%>
+          </div>
+        <% end %>
+
+
+
+ <div class ="new_review">
+    <%= form_for([@product, @review], :url => product_reviews_path(@review.product_id), :method => "post") do |f| %>
+          <div class="form-group">
+          <strong>Write a new review</strong>
+          <%= label :rating, "Rating:" %> <br />
+          <%= f.select :rating, [5, 4, 3, 2, 1] %>
+          </div>
+          <div class="form-group">
+          <%= label :description, "Description:" %> <br />
+          <%= f.text_area :description, size: "80x6" %>
+          </div>
+          <%= f.submit "Create" %>
+        <% end %>
+
+      </div>
+  </div>
+  </article>
 </section>
