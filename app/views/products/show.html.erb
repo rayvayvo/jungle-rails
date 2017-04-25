@@ -33,8 +33,11 @@
     <% end %>
 
       <strong class="review_header">User Reviews:</strong>
+
+    <% if review_sum > 0 %>
       <strong id="review_count">rating of: <%=review_sum/reviews.count%>
       /5 out of <%= reviews.count %> reviews </strong>
+    <% end %>
 
     <% if !@review %>
       <h2 class="no_review_header">No reviews yet!</h2>
