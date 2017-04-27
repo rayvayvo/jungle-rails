@@ -135,7 +135,7 @@ cat3.products.create!({
 })
 
 Review.create(
-  product_id: 13,
+  product_id: 1,
   user_email: "bob@bob.com",
   description: "cool!!!",
   rating: 3
@@ -156,7 +156,7 @@ Review.create(
   )
 
 Review.create(
-  product_id: 13,
+  product_id: 1,
   user_email: 'coffee@java.com',
   description: 'nice',
   rating: 5
